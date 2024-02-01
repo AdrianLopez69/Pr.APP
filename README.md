@@ -122,29 +122,33 @@ La base de datos consiste en un aplicativo móvil de reproducción musical, el c
 ![](https://scontent.xx.fbcdn.net/v/t1.15752-9/421446892_1356703478310774_1779637261179648855_n.png?_nc_cat=103&ccb=1-7&_nc_sid=510075&_nc_eui2=AeHzD0u5QCiAhpKKlBwK6v8OW2hsCJWxYpVbaGwIlbFilU5CvaNTweWX07dR9piBUh0whDxwnjbLnoPS3WLVCw-w&_nc_ohc=hft11hk36Z0AX_uJPzg&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdQxAVRp16eKTazfDLB-Z6SyyFW8oQFwXXh3Va2hYaw4hQ&oe=65E27557)
 13.- Listar los usuarios que han comentado en más de una publicación en los últimos 7 días.
 
-    GASDGADG
-![]()
+	SELECT usuid FROM comentarios WHERE com_tiempo > 2024-01-25;
+
+![](https://scontent.xx.fbcdn.net/v/t1.15752-9/422368624_927284648990021_34081775080591748_n.png?stp=dst-png_s417x417&_nc_cat=103&ccb=1-7&_nc_sid=510075&_nc_eui2=AeFiiXh-lzr9GzrVkfkRYdI_wtfbhgAyf0_C19uGADJ_T2ba93qSuLGKScdJypyvbEe_X8KhXqXkb0TGJn0f3jly&_nc_ohc=O2WZfQX2n6gAX-JZMK7&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdRb5uqYEhnl6I1wY_cOhHGt7cXi9_8vpCD1PJA8lneMnw&oe=65E2E4F2)
 14.-Obtener el número total de reproducciones para cada artista en el último mes.
 
-    GASDGADG
-![]()
+    SSELECT art_id FROM artistas 
+	inner join listas_reproducciones 
+	on  listas_reproducciones.lir_orden_cancion=listas_reproducciones.lir_orden_cancion;
+
+![](https://scontent.xx.fbcdn.net/v/t1.15752-9/420271391_378239821486394_7362758814025457443_n.png?stp=dst-png_s843x403&_nc_cat=108&ccb=1-7&_nc_sid=510075&_nc_eui2=AeHbQSzba7YxzzMu_Sd7241jtyzFsSUvYyu3LMWxJS9jK16boDAtEWJVR-kCmZyJf4xRFeJ0Sw3YK1mX1Pzhzocg&_nc_ohc=OARy1QTvigYAX9E2g1q&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdQHslswKrocbQdFx3AqPe-WYYbCkgwjcsvTFcC6F0t_6w&oe=65E2E527)
 15.- Encontrar la canción más reciente de cada artista presente en la aplicación.
 
-    GASDGADG
-![]()
+    SELECT art_canciones FROM artistas;
+![](https://scontent.xx.fbcdn.net/v/t1.15752-9/420555738_674463984887479_4445478347512412897_n.png?stp=dst-png_p206x206&_nc_cat=103&ccb=1-7&_nc_sid=510075&_nc_eui2=AeGAhhYdUpBU6iuNW4Ff3ZoJ7aS5eIvYZa_tpLl4i9hlr_UO-8VSDwBuvVLOKm7T-IE9G7lns1fzJTfdqIdS4aH0&_nc_ohc=Fy0Y221K4K0AX-r7_A5&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTMhboWGbdTjhRiVS6leLIbBlMStTAC996Q9USGbWl0-g&oe=65E2EEF3)
 16.- Mostrar la cantidad de usuarios que han dado "me gusta" a más de 10 canciones de un género musical específico.
 
-    GASDGADG
-![]()
+    SELECT * FROM reacciones WHERE lik_valoracion='10' AND lik_reaccion='Diphtheritic myocarditis'
+![](https://scontent.xx.fbcdn.net/v/t1.15752-9/421921896_1433167604223532_8458553213331027196_n.png?stp=dst-png_p206x206&_nc_cat=109&ccb=1-7&_nc_sid=510075&_nc_eui2=AeGcOIz0tgQ4TsKLsn7vVyWVdxbuSywHt-F3Fu5LLAe34Ra5kCqCXVxMBiBxfEjvCezFxg9m_Q1JpzzaarXztjc_&_nc_ohc=IQnWuw5JMaYAX_arMTD&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdQyL0_2gTn9vVNFPuqGXSekBgB1O7aB84oVNkG4wLXn7g&oe=65E2E238)
 17.-Obtener la lista de usuarios que han iniciado sesión en las últimas 48 horas.
 
-    GASDGADG
+    SELECT * FROM sesiones where ses_fecha_ingreso >= NOW()- INTERVAL 48 HOUR order by ses_fecha_ingreso asc;
 
-![]()
+![](https://scontent.xx.fbcdn.net/v/t1.15752-9/422484660_3236555519980628_360928486893876943_n.png?stp=dst-png_p206x206&_nc_cat=104&ccb=1-7&_nc_sid=510075&_nc_eui2=AeH9JXCYg35zr0ffpiiQj_drQWwXPgO_GHFBbBc-A78YcalnIffj0ZkhRYs6sRGGOX4A5E_bFEcoTBFVaIzYJLQR&_nc_ohc=EiNFMjMmTPUAX_qsubl&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdS4sLEd5zRZFdxwLQ-0uIreDLPqZcre-gdHuqCydgWB3w&oe=65E2CE01)
 18.-Encontrar la canción con la calificación más alta de todos los tiempos.
 
-    GASDGADG
-![]()
+    SELECT MAX(art_calificacion) FROM artistas;
+![](https://scontent.xx.fbcdn.net/v/t1.15752-9/422372156_3670541959889390_3496087725037525939_n.png?stp=dst-png_p206x206&_nc_cat=100&ccb=1-7&_nc_sid=510075&_nc_eui2=AeGDuvCr0NHcYuY0lLnVfpIolrkjHCzinlSWuSMcLOKeVGCby0vQOWURUKQLmIXtv4jUMkBgzT-aUkbGsAOcG3bI&_nc_ohc=Otj58ZN0vuEAX_AAyAh&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdR2GdGaeP8XDiw0gv2bqCHY-JQaR8mDYvo3RgQKhsxhvQ&oe=65E2EEFA)
 19.-Listar las canciones que tienen el mismo título pero pertenecen a diferentes artistas.
 
     GASDGADG
